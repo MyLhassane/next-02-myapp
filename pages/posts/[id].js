@@ -12,7 +12,7 @@ export default function Details(props) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch("https://raw.githubusercontent.com/MyLhassane/next-02-myapp/5c9ae860935ce76c3d44e458bad6e68dc733c98f/posts.js");
+  const res = await fetch("http://localhost:3002/api/posts");
   const data = await res.json();
 
   const paths = data.map(d => {
@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const res = await fetch(`https://raw.githubusercontent.com/MyLhassane/next-02-myapp/5c9ae860935ce76c3d44e458bad6e68dc733c98f/posts.js/${context.params.id}`)
+  const res = await fetch(`http://localhost:3002/api/posts/${context.params.id}`)
   const data = await res.json();
 
   
