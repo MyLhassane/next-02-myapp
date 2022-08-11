@@ -12,7 +12,7 @@ export default function Details(props) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch("localhost:3002/api/posts");
+  const res = await fetch("http://localhost:3002/api/posts");
   const data = await res.json();
 
   const paths = data.map(d => {
@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const res = await fetch(`localhost:3002/api/posts/${context.params.id}`)
+  const res = await fetch(`http://localhost:3002/api/posts/${context.params.id}`)
   const data = await res.json();
 
   
